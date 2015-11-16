@@ -10,11 +10,11 @@ Android development environment for wercker
 
 ### Docker Index pull
 
-    docker pull takke/android-wercker
+    docker pull guptasanchit90/docker-android
 
 ### Run
 
-    docker run -i -t takke/android-wercker /bin/bash
+    docker run -i -t guptasanchit90/docker-android /bin/bash
 
 ## Android SDK
 
