@@ -1,4 +1,4 @@
-Dockerfile Android Development Environment
+Dockerfile Android Development Environment Gradle
 ===========
 
 Android development environment for wercker 
