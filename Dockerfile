@@ -27,28 +27,28 @@ RUN yum -y install libX11-devel.i686
 RUN yum -y install libXrender.i686
 
 # Install Android SDK
-RUN cd /usr/local/ && curl -L -O http://dl.google.com/android/android-sdk_r24.3.4-linux.tgz && tar xf android-sdk_r24.3.4-linux.tgz
+RUN cd /usr/local/ && curl -L -O http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xf android-sdk_r24.4.1-linux.tgz
 
 # Install Android tools
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter platform-tools 
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter build-tools-23.0.1 
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter build-tools-23.0.2 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-23 
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-19 
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-15 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter extra 
 
 # Install Gradle
-RUN cd /usr/local/ && curl -L -O http://services.gradle.org/distributions/gradle-2.2.1-all.zip && unzip -o gradle-2.2.1-all.zip
+RUN cd /usr/local/ && curl -L -O http://services.gradle.org/distributions/gradle-2.10-all.zip && unzip -o gradle-2.10-all.zip
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV GRADLE_HOME /usr/local/gradle-2.2.1
+ENV GRADLE_HOME /usr/local/gradle-2.10
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 ENV PATH $PATH:$GRADLE_HOME/bin
 
 # Clean up
-RUN rm -rf /usr/local/android-sdk_r24.3.4-linux.tgz
-RUN rm -rf /usr/local/gradle-2.2.1-all.zip
+RUN rm -rf /usr/local/android-sdk_r24.4.1-linux.tgz
+RUN rm -rf /usr/local/gradle-2.10-all.zip
 RUN yum clean all
 
