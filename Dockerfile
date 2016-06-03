@@ -14,6 +14,8 @@ RUN yum -y update
 # Install java (OpenJDK)
 RUN yum -y install java-1.7.0-openjdk-devel
 
+RUN yum list | grep -i "java-.*openjdk-devel"
+
 # Install Expect
 RUN yum -y install expect
 
