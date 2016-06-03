@@ -43,7 +43,7 @@ RUN cd /usr/local/ && curl -L -O http://services.gradle.org/distributions/gradle
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV GRADLE_HOME /usr/local/gradle-2.10
-ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-devel.x86_64
+ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk
 
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
