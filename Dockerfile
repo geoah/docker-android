@@ -12,7 +12,7 @@ RUN yum -y groupinstall "Development Tools"
 RUN yum -y update
 
 # Install java (OpenJDK)
-RUN yum -y install java-1.7.0-openjdk-devel
+RUN yum -y install java-1.8.0-openjdk-devel
 
 # Install Expect
 RUN yum -y install expect
@@ -32,18 +32,18 @@ RUN cd /usr/local/ && curl -L -O http://dl.google.com/android/android-sdk_r24.4.
 # Install Android tools
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter tools 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter platform-tools 
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter build-tools-23.0.2 
-RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-23 
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter build-tools-24.0.2 
+RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-24 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-15 
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter extra 
 
 # Install Gradle
-RUN cd /usr/local/ && curl -L -O http://services.gradle.org/distributions/gradle-2.10-all.zip && unzip -o gradle-2.10-all.zip
+RUN cd /usr/local/ && curl -L -O http://services.gradle.org/distributions/gradle-2.14.1-all.zip && unzip -o gradle-2.14.1-all.zip
 
 # Environment variables
 ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV GRADLE_HOME /usr/local/gradle-2.10
-ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk
+ENV GRADLE_HOME /usr/local/gradle-2.14.1
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
 
 ENV PATH $PATH:$ANDROID_HOME/tools
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
@@ -51,6 +51,5 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 
 # Clean up
 RUN rm -rf /usr/local/android-sdk_r24.4.1-linux.tgz
-RUN rm -rf /usr/local/gradle-2.10-all.zip
+RUN rm -rf /usr/local/gradle-2.14.1-all.zip
 RUN yum clean all
-
