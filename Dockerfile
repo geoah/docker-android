@@ -37,7 +37,9 @@ RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --for
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-22
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter android-15
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter extra
+RUN rm -rf /usr/local/android-sdk-linux/extras/android/m2repository
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter extra-android-m2repository
+RUN rm -rf /usr/local/android-sdk-linux/extras/google/m2repository
 RUN echo y | /usr/local/android-sdk-linux/tools/android update sdk --no-ui --force -a --filter extra-google-m2repository
 
 # Install Gradle
